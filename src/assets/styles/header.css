@@ -1,0 +1,160 @@
+.wave-container{
+    /*margin: -0.5%;*/
+    padding: 0 5vw;
+    position: relative;
+    text-align: center;
+    z-index: 1;
+    display: grid;
+    grid-template-rows: repeat(3, 6.9vw);
+}
+/*
+&nbsp&nbsp&nbsp&nbsp&nbsp
+*/
+
+.wave-text span {
+    display: inline-block;
+    font-family: PsychopersonaluseRegular-OV1xd;
+    font-size: 14vw;
+    color:  rgb(243, 243, 255);
+    opacity:0.6;
+    animation: wave 30s ease-in-out infinite;
+}
+
+.wave-text span::before,.wave-text span::after{
+    margin: -0.2%;
+    padding: 5% 12.5%;
+    position:absolute;
+    content:attr(data-text);
+    display: block;
+    top: 0;
+    left: 0;
+  }
+  
+  .wave-text span::before{
+    position: absolute;
+    top: 2%;
+    left: -2%;
+    opacity:0.65;
+    filter: blur(0.7px);
+    color: rgba(140, 186, 246, 0.8);
+    z-index: 3;
+  }
+  
+  .wave-text span::after{
+    position: absolute;
+    top: 1%;
+    left: -2%;
+    filter: blur(1.8px);
+    color: rgba(0, 26, 255, 0.6);
+    z-index: -2;
+  }
+
+
+
+.wave-text span:nth-child(1) {
+    animation-delay: 0s;
+}
+.wave-text span:nth-child(2) {
+    animation-delay: 2s;
+}
+.wave-text span:nth-child(3) {
+    animation-delay: 4s;
+}
+.wave-text span:nth-child(4) {
+    animation-delay: 6s;
+}
+
+.wave-text span:nth-child(5) {
+    animation-delay: 0s;
+}
+.wave-text span:nth-child(6) {
+    animation-delay: 2s;
+}
+.wave-text span:nth-child(7) {
+    animation-delay: 4s;
+}
+.wave-text span:nth-child(8) {
+    animation-delay: 6s;
+}
+
+.wave-text span:nth-child(9) {
+    animation-delay: 0s;
+}
+.wave-text span:nth-child(10) {
+    animation-delay: 2s;
+}
+.wave-text span:nth-child(11) {
+    animation-delay: 4s;
+}
+.wave-text span:nth-child(12) {
+    animation-delay: 6s;
+}
+.wave-text span:nth-child(13) {
+    animation-delay: 6s;
+}
+.wave-text span:nth-child(14) {
+    animation-delay: 6s;
+}
+
+.wave-text span:nth-child(15) {
+    animation-delay: 6s;
+}
+
+.wave-text span:nth-child(16) {
+    animation-delay: 0s;
+}
+.wave-text span:nth-child(17) {
+    animation-delay: 2s;
+}
+.wave-text span:nth-child(18) {
+    animation-delay: 4s;
+}
+.wave-text span:nth-child(19) {
+    animation-delay: 6s;
+}
+
+.wave-text span:nth-child(20) {
+    animation-delay: 0s;
+}
+.wave-text span:nth-child(21) {
+    animation-delay: 2s;
+}
+.wave-text span:nth-child(22) {
+    animation-delay: 4s;
+}
+.wave-text span:nth-child(23) {
+    animation-delay: 6s;
+}
+
+.wave-text span:nth-child(24) {
+    animation-delay: 0s;
+}
+.wave-text span:nth-child(25) {
+    animation-delay: 2s;
+}
+.wave-text span:nth-child(26) {
+    animation-delay: 4s;
+}
+.wave-text span:nth-child(27) {
+    animation-delay: 6s;
+}
+.wave-text span:nth-child(28) {
+    animation-delay: 6s;
+}
+.wave-text span:nth-child(29) {
+    animation-delay: 6s;
+}
+
+.wave-text span:nth-child(30) {
+    animation-delay: 6s;
+}
+
+@keyframes wave {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5vw);
+    }
+}
+
