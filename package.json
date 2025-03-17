@@ -1,14 +1,18 @@
 {
   "name": "hui",
+  "homepage": "https://senior-kapitoshka.github.io/Bubble-Solitaire-Puzzle-Vue-3/",
   "version": "0.0.0",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy":"npm run build",
+    "deploy":"gh-pages -d dist"
   },
   "dependencies": {
+    "gh-pages": "^6.3.0",
     "vue": "^3.5.13"
   },
   "devDependencies": {
