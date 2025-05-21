@@ -1,6 +1,11 @@
 # Bubble Solitaire
 
-This template should help get you started developing with Vue 3 in Vite.
+Bubble Solitaire — это переосмысление классической игры-пазла, реализованное с использованием фреймворка Vue 3 и сборщика Vite. Игра реализует механику перемещения и удаления фишек (pegs) на поле размером 7x7 с использованием drag-and-drop.
+
+## Демо
+
+Тестировать можно [здесь](https://senior-kapitoshka.github.io/Bubble-Solitaire-Puzzle-Vue-3/).
+
 
 ## Recommended IDE Setup
 
