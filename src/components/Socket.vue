@@ -68,7 +68,7 @@ const onDrop=(event,socketId)=>{
         }
 
         let pegToRemove=props.p.find((peg)=> peg.socketId == neighb);
-        pegToRemove.socketId = -1;
+        if(pegToRemove) pegToRemove.socketId = -1;
 
         props.field[Math.floor(occupeSocket/10)][occupeSocket%10]=1;
         props.field[Math.floor(freeSocket/10)][freeSocket%10]=0;
@@ -76,43 +76,46 @@ const onDrop=(event,socketId)=>{
 
 
         // GAME OVER CHECK--------------------------------------
-        let check=false;
-        let cnt=0;
-        for(let i=0;i<7;++i){
-          for(let j=0;j<7;++j){
-            if(props.field[i][j]===1){
+        let check = false;
+        let cnt = 0;
+
+        const isInside = (x, y) => x >= 0 && x < 7 && y >= 0 && y < 7;
+        const directions = [
+          [0, 1],   // вправо
+          [0, -1],  // влево
+          [1, 0],   // вниз
+          [-1, 0]   // вверх
+        ];
+
+        for (let i = 0; i < 7; ++i) {
+          for (let j = 0; j < 7; ++j) {
+            if (props.field[i][j] === 1) {
               ++cnt;
-              if(
-                (i===0 || i===6) 
-              &&  ((props.field[i][j-1]===1 && props.field[i][j+1]===0) ||
-              (props.field[i][j-1]===0 && props.field[i][j+1]===1))
-              ){
-                  check=true;
-                  break;
-              }else if(
-                (j===0 || j===6) 
-              &&  ((props.field[i-1][j]===1 && props.field[i+1][j]===0) ||
-              (props.field[i-1][j]===0 && props.field[i+1][j]===1))
-              ){
-                  check=true;
-                  break;
-              }else if( 
-                j-1>=0 && j+1<7 && i-1>=0 && i+1<7 &&
-                ((props.field[i][j-1]===1 && props.field[i][j+1]===0) || 
-                (props.field[i-1][j]===1 && props.field[i+1][j]===0) || 
-                (props.field[i][j-1]===0 && props.field[i][j+1]===1) || 
-                (props.field[i-1][j]===0 && props.field[i+1][j]===1))  
+              for (const [dx, dy] of directions) {
+                const ni = i + dx * 2;
+                const nj = j + dy * 2;
+                const mi = i + dx;
+                const mj = j + dy;
+
+                if (
+                  isInside(ni, nj) &&
+                  props.field[mi][mj] === 1 &&
+                  props.field[ni][nj] === 0
                 ) {
-                  check=true;
+                  check = true;
                   break;
-                  }
+                }
+              }
+              if (check) break;
             }
           }
         }
-        if(!check){
-           gameOverFlag.value=true;
-           if(cnt===1) winOrLose=true;
+
+        if (!check) {
+          gameOverFlag.value = true;
+          if (cnt === 1) winOrLose.value = true;
         }
+
         //--------------------------------------------------
     }
 };

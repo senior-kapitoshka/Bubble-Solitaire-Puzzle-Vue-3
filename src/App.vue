@@ -15,25 +15,19 @@ provide('winOrLose', winOrLose);
 let gameSockets, matrixField, pegs;
 
 const start=()=>{
-      startFlag.value=!startFlag.value;
-      if(gameOverFlag.value){
-            gameOverFlag.value=!gameOverFlag.value;
-      }
-      if(winOrLose.value){
-            winOrLose.value=!winOrLose.value;
-      }
-      [gameSockets, matrixField]=loadMX.load(selectMode.value);
-      if(selectMode.value==='English Mode'){
-            pegs=reactive(
-            [...Array(42).keys()]
-            .map((i)=>({title:`peg ${i}`,socketId:gameSockets[i]}))  
-            );
-      }else{
-            pegs=reactive(
-            [...Array(46).keys()]
-            .map((i)=>({title:`peg ${i}`,socketId:gameSockets[i]}))
-            );
-      }
+      startFlag.value = !startFlag.value;
+      gameOverFlag.value &&= false;
+      winOrLose.value &&= false;
+
+      [gameSockets, matrixField] = loadMX.load(selectMode.value);
+
+      const pegCount = selectMode.value === 'English Mode' ? 42 : 46;
+      pegs = reactive(
+      Array.from({ length: pegCount }, (_, i) => ({
+            title: `peg ${i}`,
+            socketId: gameSockets[i],
+      }))
+      );
 }
 
 
